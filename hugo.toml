@@ -2,6 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = "hermit-v2"
+publishDir = "docs"
 
 [params]
   dateform = "Jan 2, 2006"
