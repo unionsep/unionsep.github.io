@@ -4,11 +4,25 @@ title = 'notes'
 theme = "hermit-v2"
 publishDir = "docs"
 
+
+[languages]
+  [languages.en]
+    title = 'Hermit - V2'
+    languageCode = 'en-US'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    [languages.en.params]
+      homeSubtitle = "Abide as things ought to be"
+
 [params]
   dateform = "Jan 2, 2006"
   dateformShort = "Jan 2"
   dateformNum = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
+
+  homeSubtitlePrinter = true
+  scrollToTop = true
+  
 
   [params.author]
     name = "unionsep"
