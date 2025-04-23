@@ -1,6 +1,6 @@
 baseURL = 'https://unionsep.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'notes'
 theme = "hermit-v2"
 publishDir = "docs"
 
