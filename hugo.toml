@@ -7,7 +7,7 @@ publishDir = "docs"
 
 [languages]
   [languages.en]
-    title = 'Hermit - V2'
+    title = 'notes'
     languageCode = 'en-US'
     languageDirection = 'ltr'
     languageName = 'English'
