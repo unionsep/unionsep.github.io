@@ -10,12 +10,11 @@ publishDir = "docs"
 
 [languages]
   [languages.en]
-    title = 'notes'
     languageCode = 'en-US'
     languageDirection = 'ltr'
     languageName = 'English'
     [languages.en.params]
-      homeSubtitle = "Abide as things ought to be"
+      homeSubtitle = "Hope for the best, and prepare for the worst."
 
 [params]
   dateform = "Jan 2, 2006"
