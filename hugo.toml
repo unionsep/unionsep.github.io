@@ -28,6 +28,9 @@ publishDir = "docs"
   [[params.socialLinks]]
     name = "github"
     url = "https://github.com/unionsep"
+  [[params.socialLinks]]
+    name = "twitter"
+    url = "https://x.com/unionSep"
 
   [params.author]
     name = "unionsep"
