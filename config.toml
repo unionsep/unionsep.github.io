@@ -31,6 +31,9 @@ publishDir = "docs"
   [[params.socialLinks]]
     name = "twitter"
     url = "https://x.com/unionSep"
+  [[params.socialLinks]]
+    name = "email"
+    url = "union.septem@gmail.com"
 
   [params.author]
     name = "unionsep"
