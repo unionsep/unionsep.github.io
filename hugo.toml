@@ -25,6 +25,9 @@ publishDir = "docs"
   homeSubtitlePrinter = true
   scrollToTop = true
   
+  [[params.socialLinks]]
+    name = "github"
+    url = "https://github.com/unionsep"
 
   [params.author]
     name = "unionsep"
