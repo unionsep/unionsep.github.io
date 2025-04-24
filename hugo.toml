@@ -4,6 +4,9 @@ title = 'notes'
 theme = "hermit-v2"
 publishDir = "docs"
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
 
 [languages]
   [languages.en]
