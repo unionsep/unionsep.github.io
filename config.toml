@@ -37,3 +37,10 @@ publishDir = "docs"
 
   [params.author]
     name = "unionsep"
+
+[menu]
+
+    [[menu.main]]
+        name = "Posts"
+        url = "posts/"
+        weight = 10
