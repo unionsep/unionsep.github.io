@@ -40,7 +40,7 @@ publishDir = "docs"
 
 [menu]
 
-    [[menu.main]]
-        name = "Posts"
-        url = "posts/"
-        weight = 10
+  [[menu.main]]
+    name = "Posts"
+    url = "posts/"
+    weight = 10
