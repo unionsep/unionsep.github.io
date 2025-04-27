@@ -33,7 +33,7 @@ publishDir = "docs"
     url = "https://x.com/unionSep"
   [[params.socialLinks]]
     name = "email"
-    url = "union.septem@gmail.com"
+    url = "mailto:union.septem@gmail.com"
 
   [params.author]
     name = "unionsep"
