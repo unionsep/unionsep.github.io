@@ -29,7 +29,7 @@ publishDir = "docs"
     name = "github"
     url = "https://github.com/unionsep"
   [[params.socialLinks]]
-    name = "twitter"
+    name = "x"
     url = "https://x.com/unionSep"
   [[params.socialLinks]]
     name = "email"
