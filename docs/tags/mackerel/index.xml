@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 	<channel>
-		<title>notes</title>
-		<link>http://localhost:1313/</link>
-		<description>Recent content on notes</description>
+		<title>Mackerel on notes</title>
+		<link>http://localhost:1313/tags/mackerel/</link>
+		<description>Recent content in Mackerel on notes</description>
 		<generator>Hugo -- 0.161.1</generator>
 		<language>en</language>
-		<lastBuildDate>Tue, 22 Apr 2025 00:24:03 +0900</lastBuildDate>
-		<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+		<lastBuildDate>Fri, 08 Apr 2016 01:36:08 +0900</lastBuildDate>
+		<atom:link href="http://localhost:1313/tags/mackerel/index.xml" rel="self" type="application/rss+xml" />
 		
-		
-		<item>
-			<title>First Post</title>
-			<link>http://localhost:1313/posts/first-post/</link>
-			<pubDate>Tue, 22 Apr 2025 00:24:03 +0900</pubDate><author>unionsep</author><guid>http://localhost:1313/posts/first-post/</guid>
-			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
-		</item>
 		
 		<item>
 			<title>Mackerelで遊んでみた</title>
@@ -32,17 +25,17 @@ Markdown記法に慣れてないので、GitのWiki書くのもやっぱり苦�
 <li><a href="/posts/2016/04/08/013608/first-post/#no5">Slackから再起動スクリプトを叩けるようにできたらええな&hellip;</a></li>
 <li><a href="/posts/2016/04/08/013608/first-post/#no6">まとめなど</a></li>
 </ol>
-<h4 id="no1">サインアップとインストール<a href="#no1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+<h5 id="サインアップとインストール"><!-- raw HTML omitted -->サインアップとインストール<!-- raw HTML omitted --><a href="#%e3%82%b5%e3%82%a4%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%e3%81%a8%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
       <line x1="8" y1="12" x2="16" y2="12"></line>
-   </svg></a></h4>
+   </svg></a></h5>
 <p>なんのこっちゃないです。<a href="https://mackerel.io/ja/">ここ</a> からメールアドレスで登録しました。<br>
 サインインするとオーガニゼーション、サービス、ホストを作るスタートアップガイドがあったので、その通り作りました。適当にネーミングしたの、、やっぱ失敗だったかな。</p>
 <p>エージェントのインストールはrpmが選べるみたいだったので、その通り、叩いてみた。<br>
 特にひっかかりなく、agentもインストールできたんですが、sedでapikeyを書き換えるんですね。起動時にuser/passの入力を想像してたんで、ちょっと以外でした。</p>
 <p>で、mackerelのページに戻ったら、もう既にcpuやらmemoryやらの6個ぐらいのグラフが出来上がってた。こいつぁ、早い！って感心しました。</p>
-<h4 id="no2">Hubotを監視してみる<a href="#no2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+<h4 id="hubotを監視してみる"><!-- raw HTML omitted -->Hubotを監視してみる<!-- raw HTML omitted --><a href="#hubot%e3%82%92%e7%9b%a3%e8%a6%96%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
       <line x1="8" y1="12" x2="16" y2="12"></line>
@@ -63,14 +56,11 @@ Markdown記法に慣れてないので、GitのWiki書くのもやっぱり苦�
 error: Forever detected script was killed by signal: SIGKILL
 </code></pre><p>落ちてた時のログがこれ。<br>
 どうもKILLシグナルが出てるみたいだから、プロセス監視できたら良いかなーって思ってたら、こちらの方と全く同じ要件でした。。確かに私もよくわからなかったです。(´・ω・｀)</p>
+<p>[http://arata.hatenadiary.com/entry/2015/06/23/005339:embed:cite]</p>
 <aside class="cite-card">
-  
-    <img class="cite-card__image" src="https://cdn.image.st-hatena.com/image/square/c47e6646d117b773fcae369601ee76c851f45bc1/backend=imagemagick;height=200;version=1;width=200/http%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fa%2Farata3da4%2F20150623%2F20150623003900.png" alt="" loading="lazy">
-  
-
-  <a href="https://arata.hatenadiary.com/entry/2015/06/23/005339" target="_blank" rel="noopener noreferrer">
+  <a href="http://arata.hatenadiary.com/entry/2015/06/23/005339" target="_blank" rel="noopener noreferrer">
     <div class="cite-card__site">arata.hatenadiary.com</div>
-    <div class="cite-card__title">mackerelを利用してhubotが死んだ時に気がつくようにした</div>
+    <div class="cite-card__title">元記事のタイトル</div>
   </a>
 </aside>
 
@@ -91,14 +81,14 @@ echo -e &#34;&lt;むふふ&gt;-hubot\t`ps aux|grep hubot|grep adapter|wc -l`\t`d
 <pre tabindex="0"><code>[plugin.metrics.&lt;むふふ&gt;-hubot]
 command = &#34;/usr/local/bin/mackerel-plugin-hubot&#34;
 </code></pre><p>文字列 Tab 数字 Tab <code>date -u +%s</code>な感じで標準出力したら、うまいこと読んでくれました。こんなんでも食ってくれるんだったら、perlでもphpでもなんでも作れそうです。公式プラグイン集はGo言語が多かったようです。agentがGo言語製だからかな？</p>
-<h4 id="no3">監視ルールを設定してみる<a href="#no3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+<h4 id="監視ルールを設定してみる"><!-- raw HTML omitted -->監視ルールを設定してみる<!-- raw HTML omitted --><a href="#%e7%9b%a3%e8%a6%96%e3%83%ab%e3%83%bc%e3%83%ab%e3%82%92%e8%a8%ad%e5%ae%9a%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
       <line x1="8" y1="12" x2="16" y2="12"></line>
    </svg></a></h4>
 <p>Monitorsの監視ルールを追加から、作ったメトリックのルールを追加してみました。監視対象のメトリックから、絞り込んで設定。プロセスが1未満だったらWarningにもCriticalにもする的な設定にしてみました。<br>
 どうでもええけど、不等号がどっちやったっけ？ってちょっとだけ迷いました。</p>
-<h4 id="no4">Slackに投稿<a href="#no4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+<h4 id="slackに投稿"><!-- raw HTML omitted -->Slackに投稿<!-- raw HTML omitted --><a href="#slack%e3%81%ab%e6%8a%95%e7%a8%bf" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
       <line x1="8" y1="12" x2="16" y2="12"></line>
@@ -107,14 +97,14 @@ command = &#34;/usr/local/bin/mackerel-plugin-hubot&#34;
 SlackはIncoming WebhooksのURLを設定すればいいみたいですね。<br>
 で、おもむろにHubotをstopしてみたら、グラフ付きでちゃんと通知来ました！メールボムみたいにギャンギャン通知くるのかなー？どうなのかなー？って10分ほどおいてみましたけど、そうでもなかったです。これは嬉しいですね。<br>
 待ってるの飽きてきたので、startしたら、グラフ付きでちゃんとokきました。</p>
-<h4 id="no5">SlackからHubotを再起動<a href="#no5" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+<h4 id="slackからhubotを再起動"><!-- raw HTML omitted -->SlackからHubotを再起動<!-- raw HTML omitted --><a href="#slack%e3%81%8b%e3%82%89hubot%e3%82%92%e5%86%8d%e8%b5%b7%e5%8b%95" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
       <line x1="8" y1="12" x2="16" y2="12"></line>
    </svg></a></h4>
 <p>Slash CommandsからJenkinsAPIを叩いて行けそうだったんですが、認証通すのがしんどかったので、それ用のWebAPIを用意した方が速そうって気付きました。<br>
 でも、もはやMackerel関係ないし、時間切れだしで、また今度作ろうと心に誓って作業終了にしました。</p>
-<h4 id="no6">まとめ<a href="#no6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+<h4 id="まとめ"><!-- raw HTML omitted -->まとめ<!-- raw HTML omitted --><a href="#%e3%81%be%e3%81%a8%e3%82%81" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
       <line x1="8" y1="12" x2="16" y2="12"></line>

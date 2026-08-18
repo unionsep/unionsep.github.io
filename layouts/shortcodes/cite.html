@@ -1,0 +1,10 @@
+<aside class="cite-card">
+  {{ with .Get "image" }}
+    <img class="cite-card__image" src="{{ . }}" alt="" loading="lazy">
+  {{ end }}
+
+  <a href="{{ .Get "url" }}" target="_blank" rel="noopener noreferrer">
+    <div class="cite-card__site">{{ .Get "site" }}</div>
+    <div class="cite-card__title">{{ .Get "title" }}</div>
+  </a>
+</aside>
