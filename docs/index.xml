@@ -1,27 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
-	<channel>
-		<title>notes</title>
-		<link>http://localhost:1313/</link>
-		<description>Recent content on notes</description>
-		<generator>Hugo -- 0.161.1</generator>
-		<language>en</language>
-		<lastBuildDate>Tue, 22 Apr 2025 00:24:03 +0900</lastBuildDate>
-		<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-		
-		
-		<item>
-			<title>First Post</title>
-			<link>http://localhost:1313/posts/first-post/</link>
-			<pubDate>Tue, 22 Apr 2025 00:24:03 +0900</pubDate><author>unionsep</author><guid>http://localhost:1313/posts/first-post/</guid>
-			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
-		</item>
-		
-		<item>
-			<title>Mackerelで遊んでみた</title>
-			<link>http://localhost:1313/posts/2016/04/08/013608/first-post/</link>
-			<pubDate>Fri, 08 Apr 2016 01:36:08 +0900</pubDate><author>unionsep</author><guid>http://localhost:1313/posts/2016/04/08/013608/first-post/</guid>
-			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[<p>はてなさんが展開してるMackerelを使う機会に恵まれたので、ついでに監視してみたかったものを利用してMackerelを一通り触ってみました。<br>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/"><channel><title>notes</title><link>https://unionsep.github.io/</link><description>Recent content on notes</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Tue, 22 Apr 2025 00:24:03 +0900</lastBuildDate><atom:link href="https://unionsep.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>First Post</title><link>https://unionsep.github.io/posts/first-post/</link><pubDate>Tue, 22 Apr 2025 00:24:03 +0900</pubDate><author>unionsep</author><guid>https://unionsep.github.io/posts/first-post/</guid><description>&amp;lt;no value&amp;gt;</description><content type="text/html" mode="escaped"></content></item><item><title>Mackerelで遊んでみた</title><link>https://unionsep.github.io/posts/2016/04/08/013608/first-post/</link><pubDate>Fri, 08 Apr 2016 01:36:08 +0900</pubDate><author>unionsep</author><guid>https://unionsep.github.io/posts/2016/04/08/013608/first-post/</guid><description>&amp;lt;no value&amp;gt;</description><content type="text/html" mode="escaped"><![CDATA[<p>はてなさんが展開してるMackerelを使う機会に恵まれたので、ついでに監視してみたかったものを利用してMackerelを一通り触ってみました。<br>
 meetupで出会った方に仲良くしていただいたので、導入してみたよっ！ってお伝えしたら、ブログも勧められたので、書いたことないブログも書いてみました。
 Markdown記法に慣れてないので、GitのWiki書くのもやっぱり苦手で、克服できたらええなぁ&hellip;</p>
 <ol>
@@ -122,8 +99,4 @@ SlackはIncoming WebhooksのURLを設定すればいいみたいですね。<br>
 <p>一通りmackerelを触ってみた感想は、既存のツールを意識した作りにしてるのかなーって思いました。今使ってるツールのこうならんかなー的な欲求を汲んでくれてるかなと。<br>
 Zabbixのグラフ探すのが未だに苦手、muninの通知設定苦手〜とか。。あれ、俺だけか・・・</p>
 <p>ブログは、、あれですね。書くのに超時間かかりました。。世のブロガーさんはすげーなって感心です。もっと画像とか入れたら華があったんだろうなぁ〜。</p>
-]]></content>
-		</item>
-		
-	</channel>
-</rss>
+]]></content></item></channel></rss>
