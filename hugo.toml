@@ -17,10 +17,6 @@ publishDir = "docs"
       homeSubtitle = "Hope for the best, and prepare for the worst."
 
 [params]
-  dateform = "Jan 2, 2006"
-  dateformShort = "Jan 2"
-  dateformNum = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
 
   homeSubtitlePrinter = true
   scrollToTop = true
@@ -37,6 +33,13 @@ publishDir = "docs"
 
   [params.author]
     name = "unionsep"
+
+  [params.dateform]
+    CopyrightDate = "2006"
+    LongDate = "Jan 2, 2006"
+    ShortDate = "Jan 2"
+    NumDateShort = "2006-01-02"
+    NumDateLong = "2006-01-02 15:04 -0700"
 
 [menu]
 
