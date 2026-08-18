@@ -1,0 +1,30 @@
+---
+title: "後でAnsibleにしたいsensu-serverのインストールログ"
+date: 2016-06-20T17:26:29+09:00
+draft: false
+toc: true
+images:
+tags: 
+  - ansible
+custom_css:
+  - custom_css/cite.scss
+---
+
+sensu influxDB grafana環境を試してみたくて、とりあえずsensuとuchiwaをVagrantで実現してみた。
+下記のページを写経させてもらった。  
+SSL証明は0.25が最新ぽかったけど、latest指定でも大丈夫そう。  
+実際、監視させてみて感触掴んだら、頑張ってAnsible化するっす。
+
+{{< cite
+  url="http://qiita.com/narvaux/items/15da8f71f7e175116d8b"
+  site="qiita.com"
+  title="CentOS 6.6にSensuインストール（監視サーバ側）"
+  image="https://cdn.image.st-hatena.com/image/square/dea91e2af81aad1b3a5206d0d37a66214d497fd6/backend=imagemagick;height=200;version=1;width=200/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fqiita-user-contents.imgix.net%252Fhttps%25253A%25252F%25252Fcdn.qiita.com%25252Fassets%25252Fpublic%25252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%253Fixlib%253Drb-4.1.1%2526w%253D1200%2526blend64%253DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGMzUzOSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTQ3MzY4MzMwMD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjdjNjNhODRjMmE4MjI2NTk1MGQ3MzI3ZDhiYWJjYzg%2526blend-x%253D120%2526blend-y%253D462%2526blend-w%253D90%2526blend-h%253D90%2526blend-mode%253Dnormal%2526mark64%253DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZiOTM2YTFjOGIxNTI2Mjk3OGQ1OGQ4ZjljMzI4OTc0YzRkNGI0YTJlJTJGb3JpZ2luYWwuanBnJTNGMTQyMjkzOTAzOD9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1jYWNhZTQ2NjUxNDIzZWEzNTRjYTgyYTFjMDk3ZGIyMA%2526mark-x%253D186%2526mark-y%253D515%2526mark-w%253D40%2526mark-h%253D40%2526s%253D40859182d77e93f89a410ccc20f06070%3Fixlib%3Drb-4.1.1%26w%3D1200%26fm%3Djpg%26mark64%3DaHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2VudE9TJTIwNi42JUUzJTgxJUFCU2Vuc3UlRTMlODIlQTQlRTMlODMlQjMlRTMlODIlQjklRTMlODMlODglRTMlODMlQkMlRTMlODMlQUIlRUYlQkMlODglRTclOUIlQTMlRTglQTYlOTYlRTMlODIlQjUlRTMlODMlQkMlRTMlODMlOTAlRTUlODElQjQlRUYlQkMlODkmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0zODRhODU2ZTFmYWY0MTQ5NTdhZDBkOWZiOWZiMmFhYg%26mark-x%3D120%26mark-y%3D112%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDByYXNha2EmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz04NGM3NGM3ZGQwZGRiYWIxMzQzYTM5MzAxMDkxNWNmYg%26blend-x%3D242%26blend-y%3D454%26blend-w%3D838%26blend-h%3D46%26blend-fit%3Dcrop%26blend-crop%3Dleft%252Cbottom%26blend-mode%3Dnormal%26txt64%3D5qCq5byP5Lya56S-44Ko44OL44Kw44Oi%26txt-x%3D242%26txt-y%3D539%26txt-width%3D838%26txt-clip%3Dend%252Cellipsis%26txt-color%3D%25231E2121%26txt-font%3DHiragino%2520Sans%2520W6%26txt-size%3D28%26s%3De6f61a71dc26b05fe7607b9f659cc078"
+>}}
+
+{{< cite
+  url="https://github.com/unionsep/install-log/tree/master/sensu"
+  site="github.com"
+  title="install-log/sensu at master · unionsep/install-log"
+  image="https://cdn.image.st-hatena.com/image/square/23f17100a1f581ca5c844480a6d03891848cd68c/backend=imagemagick;height=200;version=1;width=200/https%3A%2F%2Fopengraph.githubassets.com%2F32ce337a0c0cb689e6cdd04709ba95774293ab26952f31cbc456dc01902a9755%2Funionsep%2Finstall-log"
+>}}
