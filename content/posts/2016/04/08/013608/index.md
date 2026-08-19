@@ -31,7 +31,7 @@ Markdown記法に慣れてないので、GitのWiki書くのもやっぱり苦�
 #### Hubotを監視してみる {#no2}
 Slackである形式で投稿したら、メールも送信してくれるみたいなHubotのscriptを作ってたんですが、v3のHubotで運用していたせいか、3,4日ほど利用されないとSocketが切れるのか、Hubot自体もKILLされてるみたいな現象が起きてました。  
 休み明けに会社来て、bot無反応だったよって聞くたびに悲しくなったので、モニタリングしてみたかったのでカスタムメトリックなるものを作ってみました。  
-```
+```shell
 [Tue Dec 22 2015 01:31:13 GMT+0900 (JST)] ERROR Last pong is too old: 14.844
 [Tue Dec 22 2015 01:31:13 GMT+0900 (JST)] INFO Reconnecting in 1000ms
 [Tue Dec 22 2015 01:31:14 GMT+0900 (JST)] INFO Attempting reconnect
@@ -64,12 +64,12 @@ Apacheだったらserver-statusを見れるようにしとくとか、段取り�
 ということで、どうやら`/usr/local/bin`にmackerel-pluginから始まるスクリプトを用意して食わせるって感じだったので、シェルスクリプトだけど作ってみました。  
 
 _at /usr/local/bin/mackerel-plugin-hubot_
-```
+```shell
 #!/bin/sh
 echo -e "<むふふ>-hubot\t`ps aux|grep hubot|grep adapter|wc -l`\t`date -u +%s`"
 ```
 _at /etc/mackerel-agent/mackerel-agent.conf_
-```
+```shell
 [plugin.metrics.<むふふ>-hubot]
 command = "/usr/local/bin/mackerel-plugin-hubot"
 ```

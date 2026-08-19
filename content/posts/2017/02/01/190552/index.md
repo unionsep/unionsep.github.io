@@ -31,15 +31,15 @@ vmはこんな感じ
   - [Vagrant box centos/7 | Atlas by HashiCorp](https://atlas.hashicorp.com/centos/boxes/7)
   - `/` に40GBぐらいマウントされるんで、disk20GB以上指定クリア
 - IPアドレスを固定したいので、Vagrantfileに以下追加
-```
+```shell
 config.vm.network "private_network", ip: "192.168.33.10"
 ```
 - SSLみたいなので、443ポートをマッピング
-```
+```shell
 config.vm.network "forwarded_port", guest: 443, host: 443
 ```
 - RAMは2GB以上指定なので、以下追加
-```
+```shell
 config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
 end
@@ -54,7 +54,7 @@ end
 
 - `setup.sh` と同じ階層にある `inventory` にパスワードを事前に書いておく  
 これやっておかないとAnsible Coreさんに怒られる
-```
+```shell
 [all:vars]
 admin_password='パスワード'
 redis_password='パスワード'
