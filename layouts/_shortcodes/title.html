@@ -1,0 +1,30 @@
+{{- $url := .Get "url" -}}
+{{- $position := .Position -}}
+
+{{- if not $url -}}
+  {{- errorf "title shortcode: url is required (%s)" $position -}}
+{{- end -}}
+
+{{/* 取得できなかった場合はURLを表示する */}}
+{{- $title := $url -}}
+{{- $options := dict "timeout" "10s" -}}
+
+{{- with try (resources.GetRemote $url $options) -}}
+  {{- with .Err -}}
+    {{- warnf "title shortcode: failed to fetch %q: %s (%s)" $url . $position -}}
+
+  {{- else with .Value -}}
+    {{- $matches := strings.FindRESubmatch `(?is)<title[^>]*>(.*?)</title>` .Content 1 -}}
+
+    {{- if $matches -}}
+      {{- $title = index (index $matches 0) 1 | transform.Plainify | transform.HTMLUnescape | strings.TrimSpace -}}
+    {{- else -}}
+      {{- warnf "title shortcode: title tag was not found at %q (%s)" $url $position -}}
+    {{- end -}}
+
+  {{- else -}}
+    {{- warnf "title shortcode: no response from %q (%s)" $url $position -}}
+  {{- end -}}
+{{- end -}}
+
+<a href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $title }}</a>

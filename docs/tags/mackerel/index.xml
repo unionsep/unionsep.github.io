@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/"><channel><title>Mackerel on notes</title><link>https://unionsep.github.io/tags/mackerel/</link><description>Recent content in Mackerel on notes</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Fri, 08 Apr 2016 01:36:08 +0900</lastBuildDate><atom:link href="https://unionsep.github.io/tags/mackerel/index.xml" rel="self" type="application/rss+xml"/><item><title>Mackerelで遊んでみた</title><link>https://unionsep.github.io/posts/2016/04/08/013608/first-post/</link><pubDate>Fri, 08 Apr 2016 01:36:08 +0900</pubDate><author>unionsep</author><guid>https://unionsep.github.io/posts/2016/04/08/013608/first-post/</guid><description>&amp;lt;no value&amp;gt;</description><content type="text/html" mode="escaped"><![CDATA[<p>はてなさんが展開してるMackerelを使う機会に恵まれたので、ついでに監視してみたかったものを利用してMackerelを一通り触ってみました。<br>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/"><channel><title>Mackerel on notes</title><link>https://unionsep.github.io/tags/mackerel/</link><description>Recent content in Mackerel on notes</description><generator>Hugo -- 0.161.1</generator><language>en</language><lastBuildDate>Fri, 08 Apr 2016 01:36:08 +0900</lastBuildDate><atom:link href="https://unionsep.github.io/tags/mackerel/index.xml" rel="self" type="application/rss+xml"/><item><title>Mackerelで遊んでみた</title><link>https://unionsep.github.io/posts/2016/04/08/013608/</link><pubDate>Fri, 08 Apr 2016 01:36:08 +0900</pubDate><author>unionsep</author><guid>https://unionsep.github.io/posts/2016/04/08/013608/</guid><description>&amp;lt;no value&amp;gt;</description><content type="text/html" mode="escaped"><![CDATA[<p>はてなさんが展開してるMackerelを使う機会に恵まれたので、ついでに監視してみたかったものを利用してMackerelを一通り触ってみました。<br>
 meetupで出会った方に仲良くしていただいたので、導入してみたよっ！ってお伝えしたら、ブログも勧められたので、書いたことないブログも書いてみました。
 Markdown記法に慣れてないので、GitのWiki書くのもやっぱり苦手で、克服できたらええなぁ&hellip;</p>
 <ol>
-<li><a href="/posts/2016/04/08/013608/first-post/#no1">Mackerelにサインアップ、agentをインストールしてみる</a></li>
-<li><a href="/posts/2016/04/08/013608/first-post/#no2">Hubotがちょいちょい落ちてたので、独自監視項目を追加してみる</a></li>
-<li><a href="/posts/2016/04/08/013608/first-post/#no3">監視ルールを設定してみる</a></li>
-<li><a href="/posts/2016/04/08/013608/first-post/#no4">Slackに投稿できるようにしてみる</a></li>
-<li><a href="/posts/2016/04/08/013608/first-post/#no5">Slackから再起動スクリプトを叩けるようにできたらええな&hellip;</a></li>
-<li><a href="/posts/2016/04/08/013608/first-post/#no6">まとめなど</a></li>
+<li><a href="/posts/2016/04/08/013608/#no1">Mackerelにサインアップ、agentをインストールしてみる</a></li>
+<li><a href="/posts/2016/04/08/013608/#no2">Hubotがちょいちょい落ちてたので、独自監視項目を追加してみる</a></li>
+<li><a href="/posts/2016/04/08/013608/#no3">監視ルールを設定してみる</a></li>
+<li><a href="/posts/2016/04/08/013608/#no4">Slackに投稿できるようにしてみる</a></li>
+<li><a href="/posts/2016/04/08/013608/#no5">Slackから再起動スクリプトを叩けるようにできたらええな&hellip;</a></li>
+<li><a href="/posts/2016/04/08/013608/#no6">まとめなど</a></li>
 </ol>
 <h4 id="no1">サインアップとインストール<a href="#no1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
@@ -41,13 +41,20 @@ error: Forever detected script was killed by signal: SIGKILL
 </code></pre><p>落ちてた時のログがこれ。<br>
 どうもKILLシグナルが出てるみたいだから、プロセス監視できたら良いかなーって思ってたら、こちらの方と全く同じ要件でした。。確かに私もよくわからなかったです。(´・ω・｀)</p>
 <aside class="cite-card">
-  
-    <img class="cite-card__image" src="https://cdn.image.st-hatena.com/image/square/c47e6646d117b773fcae369601ee76c851f45bc1/backend=imagemagick;height=200;version=1;width=200/http%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fa%2Farata3da4%2F20150623%2F20150623003900.png" alt="" loading="lazy">
-  
+    <img
+      class="cite-card__image"
+      src="https://cdn.image.st-hatena.com/image/scale/551911ae67467a33c05e6f4459000e9b05b5ccb7/backend=imagemagick;version=1;width=1300/http%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fa%2Farata3da4%2F20150623%2F20150623003900.png"
+      alt=""
+      loading="lazy"
+    >
 
   <a href="https://arata.hatenadiary.com/entry/2015/06/23/005339" target="_blank" rel="noopener noreferrer">
-    <div class="cite-card__site">arata.hatenadiary.com</div>
     <div class="cite-card__title">mackerelを利用してhubotが死んだ時に気がつくようにした</div>
+      <div class="cite-card__description">
+        趣味でhubotいじったりしてるんですが、たまに死んでる時があります。 Slackでコマンド打って何も返ってこないと切なくなるので、 死んだ時に死んでしまうとは情けないと言えるよう…
+      </div>
+
+    <div class="cite-card__site">日頃の行い</div>
   </a>
 </aside>
 

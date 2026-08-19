@@ -1,0 +1,123 @@
+{{- $url := .Get "url" -}}
+{{- $parsedURL := urls.Parse $url -}}
+{{- $site := $parsedURL.Hostname | default $url -}}
+{{- $siteName := "" -}}
+{{- $title := $url -}}
+{{- $description := "" -}}
+{{- $image := "" -}}
+
+{{- with try (resources.GetRemote $url (dict "timeout" "10s")) -}}
+  {{- with .Value -}}
+    {{- $html := .Content -}}
+
+    {{/* <title>をフォールバックとして取得 */}}
+    {{- $titleMatches := strings.FindRESubmatch `(?is)<title[^>]*>(.*?)</title>` $html 1 -}}
+
+    {{- if $titleMatches -}}
+      {{- $title = index (index $titleMatches 0) 1
+        | transform.Plainify
+        | transform.HTMLUnescape
+        | strings.TrimSpace
+      -}}
+    {{- end -}}
+
+    {{/* og:titleまたはtwitter:titleを優先 */}}
+    {{- $ogTitleTags := strings.FindRE `(?is)<meta[^>]+(property|name)\s*=\s*["'](og:title|twitter:title)["'][^>]*>` $html 1 -}}
+
+    {{- if $ogTitleTags -}}
+      {{- $ogTitleMatches := strings.FindRESubmatch `(?is)\bcontent\s*=\s*["']([^"']+)["']` (index $ogTitleTags 0) 1 -}}
+
+      {{- if $ogTitleMatches -}}
+        {{- $title = index (index $ogTitleMatches 0) 1
+          | transform.Plainify
+          | transform.HTMLUnescape
+          | strings.TrimSpace
+        -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{/* og:site_nameを取得。なければドメインを使う */}}
+    {{- $siteNameTags := strings.FindRE `(?is)<meta[^>]+(property|name)\s*=\s*["']og:site_name["'][^>]*>` $html 1 -}}
+
+    {{- if $siteNameTags -}}
+      {{- $siteNameMatches := strings.FindRESubmatch `(?is)\bcontent\s*=\s*["']([^"']+)["']` (index $siteNameTags 0) 1 -}}
+
+      {{- if $siteNameMatches -}}
+        {{- $siteName = index (index $siteNameMatches 0) 1
+          | transform.Plainify
+          | transform.HTMLUnescape
+          | strings.TrimSpace
+        -}}
+
+        {{- $site = $siteName -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{/* og:imageまたはtwitter:imageを取得 */}}
+    {{- $imageTags := strings.FindRE `(?is)<meta[^>]+(property|name)\s*=\s*["'](og:image|twitter:image)["'][^>]*>` $html 1 -}}
+
+    {{- if $imageTags -}}
+      {{- $imageMatches := strings.FindRESubmatch `(?is)\bcontent\s*=\s*["']([^"']+)["']` (index $imageTags 0) 1 -}}
+
+      {{- if $imageMatches -}}
+        {{- $image = index (index $imageMatches 0) 1
+          | transform.HTMLUnescape
+          | strings.TrimSpace
+        -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{/* descriptionを取得 */}}
+    {{- $descriptionTags := strings.FindRE `(?is)<meta[^>]+(property|name)\s*=\s*["'](og:description|twitter:description|description)["'][^>]*>` $html 1 -}}
+
+    {{- if $descriptionTags -}}
+      {{- $descriptionMatches := strings.FindRESubmatch `(?is)\bcontent\s*=\s*["']([^"']+)["']` (index $descriptionTags 0) 1 -}}
+
+      {{- if $descriptionMatches -}}
+        {{- $description = index (index $descriptionMatches 0) 1
+          | transform.Plainify
+          | transform.HTMLUnescape
+          | strings.TrimSpace
+        -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* タイトル末尾に付いたサイト名を取り除く */}}
+{{- if $siteName -}}
+  {{- range slice " - " " | " " – " " — " "｜" -}}
+    {{- $suffix := printf "%s%s" . $siteName -}}
+
+    {{- if strings.HasSuffix $title $suffix -}}
+      {{- $title = strings.TrimSuffix $suffix $title -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<aside class="cite-card">
+  {{- if $image }}
+    <img
+      class="cite-card__image"
+      src="{{ $image }}"
+      alt=""
+      loading="lazy"
+    >
+  {{- else }}
+    <div class="cite-card__image cite-card__image--fallback" aria-hidden="true">
+      {{- partial "svg.html" (dict "context" . "name" "featuredImg") -}}
+    </div>
+  {{- end }}
+
+  <a href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+    <div class="cite-card__title">{{ $title }}</div>
+
+    {{- with $description }}
+      <div class="cite-card__description">
+        {{ . | strings.Truncate 90 "…" }}
+      </div>
+    {{- end }}
+
+    <div class="cite-card__site">{{ $site }}</div>
+  </a>
+</aside>

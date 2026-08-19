@@ -6,8 +6,6 @@ toc: true
 images:
 tags: 
   - mackerel
-custom_css:
-  - custom_css/cite.scss
 ---
 
 はてなさんが展開してるMackerelを使う機会に恵まれたので、ついでに監視してみたかったものを利用してMackerelを一通り触ってみました。  
@@ -50,12 +48,7 @@ error: Forever detected script was killed by signal: SIGKILL
 落ちてた時のログがこれ。  
 どうもKILLシグナルが出てるみたいだから、プロセス監視できたら良いかなーって思ってたら、こちらの方と全く同じ要件でした。。確かに私もよくわからなかったです。(´・ω・｀)  
 
-{{< cite
-  url="https://arata.hatenadiary.com/entry/2015/06/23/005339"
-  site="arata.hatenadiary.com"
-  title="mackerelを利用してhubotが死んだ時に気がつくようにした"
-  image="https://cdn.image.st-hatena.com/image/square/c47e6646d117b773fcae369601ee76c851f45bc1/backend=imagemagick;height=200;version=1;width=200/http%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fa%2Farata3da4%2F20150623%2F20150623003900.png"
->}}
+{{< cite url="https://arata.hatenadiary.com/entry/2015/06/23/005339" >}}
 
 で、いろいろ調べてると、公式プラグイン集なるものがGitHubに集められていて、またまたrpmでインストールできる事が分かりました。で早速入れてみました。  
 
