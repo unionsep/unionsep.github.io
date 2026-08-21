@@ -1,7 +1,7 @@
 # Clone the repository with submodules
 
 ```shell
-$ git clone --recurse-submodules https://github.com/unionsep/unionsep.github.io.git
+$ git clone --recurse-submodules https://github.com/unionsep/unionsep.dev.git
 
 $ cd unionsep.github.io
 ```
