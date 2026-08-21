@@ -1,4 +1,4 @@
-baseURL = 'https://unionsep.github.io/'
+baseURL = 'https://unionsep.dev/'
 languageCode = 'en-us'
 title = 'notes'
 theme = "hermit-v2"
